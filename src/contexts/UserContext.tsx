@@ -14,6 +14,7 @@ export const UserContextProvider = ({ children }: iUserContextProvider) => {
   const [searchBrewery, setSearchBrewery] = useState({} as ICardBrewery);
   const [breweries, setBreweries] = useState([] as ICardBrewery[]);
   const [filterBreweries, setFilterBreweries] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const requestBreweries = async () => {
     try {
@@ -22,6 +23,7 @@ export const UserContextProvider = ({ children }: iUserContextProvider) => {
       );
 
       setBreweries([...data]);
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -39,6 +41,7 @@ export const UserContextProvider = ({ children }: iUserContextProvider) => {
         searchBrewery,
         setSearchBrewery,
         page,
+        loading,
       }}
     >
       {children}
