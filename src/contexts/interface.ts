@@ -10,4 +10,5 @@ export interface iUserContext {
   searchBrewery: ICardBrewery;
   setSearchBrewery: React.Dispatch<React.SetStateAction<ICardBrewery>>;
   page: string | null;
+  loading: boolean;
 }

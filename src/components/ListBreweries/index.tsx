@@ -4,7 +4,14 @@ import { ICardBrewery } from "../CardBrewery/interface";
 import { UlS } from "./styled";
 
 const ListBreweries = () => {
-  const { breweries } = useProvider();
+  const { breweries, loading } = useProvider();
+  if (loading) {
+    return (
+      <>
+        <h2>Carregando...</h2>
+      </>
+    );
+  }
   return (
     <nav aria-label="list of breweries">
       <UlS>
